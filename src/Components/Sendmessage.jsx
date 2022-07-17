@@ -6,8 +6,8 @@ import {HiThumbUp} from 'react-icons/hi'
 const Sendmessage = () => {
   return (
     <div className='flex p-2 w-[100%]'>
-        <div className='flex items-center space-x-1 grow'>
-            <div className='text-2xl text-violet-900 p-1 hover:bg-gray-300 rounded-full cursor-pointer'>
+        <div className='flex items-center space-x-0 grow'>
+            <div className='text-2xl text-violet-900 p-0 hover:bg-gray-300 rounded-full cursor-pointer'>
                 <AiFillPlusCircle/>
             </div>
             <div className='flex items-center grow bg-gray-300 rounded-2xl p-1 '>

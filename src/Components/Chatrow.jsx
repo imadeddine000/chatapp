@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const Chatrow = () => {
   return (
@@ -9,7 +10,9 @@ const Chatrow = () => {
             </div>
             <div className=' grow p-1 mx-3 sm:mx-1 md:mx-3'>
                 <h1 className='text-md'>
-                    Imadeddine kebour
+                    <Link to='/chat/123'>
+                        Imadeddine kebour
+                    </Link>
                 </h1>
                 <div className='flex items-center'>
                     <p className='text-gray-400 text-xs'>
