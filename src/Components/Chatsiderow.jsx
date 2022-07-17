@@ -1,6 +1,5 @@
 import React from 'react'
 import {BsFillCameraVideoFill,BsFillTelephoneFill,BsThreeDotsVertical} from 'react-icons/bs'
-import { UserPromptHandler } from 'selenium-webdriver/lib/capabilities'
 
 const Chatsiderow = () => {
   return (
