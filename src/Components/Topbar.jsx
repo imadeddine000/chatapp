@@ -8,13 +8,15 @@ const Topbar = () => {
     const [opensearch, setopensearch] = useState(false);
     const [search, setsearch] = useState('');
     const [menu, setmenu] = useState(false);
-    const [friendList, setfriendList] = useState([]);
-    const handleSearchChange=(e)=>{
-        if(e.target.value.length>0){
+    const [friendListid, setfriendListid] = useState([]);
+    const [friends, setfriends] = useState([]);
+    const handleSearchChange=(value)=>{
+        if(value.length>0){
             setopensearch(true)
-            setsearch(e.target.value)
+            setsearch(value)
         }else{
             setopensearch(false)
+            setsearch('')
         }
     }
     const handleMenu=()=>{
@@ -33,9 +35,15 @@ const Topbar = () => {
     useEffect(() => {
         const username=window.localStorage.getItem('username')
         axios.post('http://localhost:3001/friendlist',{username}).then(response=>{
-            setfriendList(response.data)
+            setfriendListid(response.data)
         })
+        
     }, [search]);
+    useEffect(()=>{
+            axios.get('http://localhost:3001/allfriend').then(response=>{
+                setfriends(response.data)
+            })
+    },[friendListid])
   return (
     <div className='bg-gray-100 h-[100vh] w-[100vw] md:w-[40vw]  relative overflow-auto scroll-smooth sm:border-r-2 border-violet-500 flex flex-col'>
         <div className='flex items-center justify-between'>
@@ -54,14 +62,22 @@ const Topbar = () => {
         </div>
         <div className=' bg-gray-200 flex  items-center px-2 p-1 rounded-md mx-1'>
             <div className='grow'>
-                <input type="text" placeholder='Search' className='grow sm:w-[95%] sm:text-sm md:grow bg-gray-200 outline-none' onChange={(e)=>handleSearchChange(e)} value={search}/>
+                <input type="text" placeholder='Search' className='grow sm:w-[95%]  sm:text-sm md:grow bg-gray-200 outline-none' onChange={(e)=>handleSearchChange(e.target.value)} value={search}/>
             </div>
             <div className='text-gray-400'>
                 <BiSearchAlt2/>
             </div>
         </div>
         <div className=''>
-            <Chatrow/>
+            {friendListid.map((id)=>(
+                <>
+                {friends.map((friend,index)=>(
+                    <>
+                        {friend._id==id.friendId?<Chatrow friend={friend} key={index} id={friend._id}/>:<></>}
+                    </>
+                ))}
+                </>
+            ))}
         </div>
         {opensearch?<Searchpage search={search}/>:<></>}
         {menu?<div>
