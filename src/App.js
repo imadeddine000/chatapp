@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     const token=window.localStorage.getItem('token')
     const username=window.localStorage.getItem('username')
-   axios.post('http://localhost:3001/check',{token,username}).then(response=>{
+   axios.post('https://iekchatapp.herokuapp.com/check',{token,username}).then(response=>{
       setisloggedin(response.data.state)
    })
   }, []);

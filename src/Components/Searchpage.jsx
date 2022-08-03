@@ -4,7 +4,7 @@ import axios from 'axios'
 const Searchpage = ({search}) => {
   const [users, setusers] = useState([]);
   useEffect(()=>{
-    axios.post('http://localhost:3001/search').then(response=>{
+    axios.post('https://iekchatapp.herokuapp.com/search').then(response=>{
         setusers(response.data)
     })
   },[search])

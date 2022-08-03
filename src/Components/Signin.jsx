@@ -8,7 +8,7 @@ const Signin = () => {
     const [registermessage, setregistermessage] = useState('');
     const handleSignup=()=>{
         setregistermessage('')
-        axios.post('http://localhost:3001/register',{username,password,email}).then(response=>{  
+        axios.post('https://iekchatapp.herokuapp.com/register',{username,password,email}).then(response=>{  
         setregistermessage(response.data.message)
 
         })

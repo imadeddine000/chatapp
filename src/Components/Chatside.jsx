@@ -17,7 +17,7 @@ const Chatside = ({socket}) => {
   
   useEffect(()=>{
   let id=window.location.pathname.slice(6,window.location.pathname.length)
-        axios.post('http://localhost:3001/friendbyid',{id:id}).then(response=>{
+        axios.post('https://iekchatapp.herokuapp.com/friendbyid',{id:id}).then(response=>{
             setfriend(response.data)
         })
         

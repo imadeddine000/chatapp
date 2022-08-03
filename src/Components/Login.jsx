@@ -13,7 +13,7 @@ const Login = () => {
         setloginpage(true)
     }
     const handleLogin=()=>{
-        axios.post('http://localhost:3001/login',{username,password}).then(response=>{
+        axios.post('https://iekchatapp.herokuapp.com/login',{username,password}).then(response=>{
             window.localStorage.setItem('token',response.data.token)
             window.localStorage.setItem('username',response.data.username)
             window.localStorage.setItem('id',response.data.id)

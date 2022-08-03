@@ -34,13 +34,13 @@ const Topbar = () => {
     }
     useEffect(() => {
         const username=window.localStorage.getItem('username')
-        axios.post('http://localhost:3001/friendlist',{username}).then(response=>{
+        axios.post('https://iekchatapp.herokuapp.com/friendlist',{username}).then(response=>{
             setfriendListid(response.data)
         })
         
     }, [search]);
     useEffect(()=>{
-            axios.get('http://localhost:3001/allfriend').then(response=>{
+            axios.get('https://iekchatapp.herokuapp.com/allfriend').then(response=>{
                 setfriends(response.data)
             })
     },[friendListid])

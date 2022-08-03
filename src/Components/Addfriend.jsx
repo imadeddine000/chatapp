@@ -4,7 +4,7 @@ import axios from 'axios'
 const Addfriend = ({user}) => {
     const handleAddUser=(id)=>{
         const username=window.localStorage.getItem('username')
-        axios.post('http://localhost:3001/addfriend',{id,username}).then(response=>{
+        axios.post('https://iekchatapp.herokuapp.com/addfriend',{id,username}).then(response=>{
             console.log(response.data.message)
         })
     }
