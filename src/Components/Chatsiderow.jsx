@@ -1,7 +1,7 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import {BsFillCameraVideoFill,BsFillTelephoneFill,BsThreeDotsVertical} from 'react-icons/bs'
-
 const Chatsiderow = ({friend}) => {
+        
   return (
    <>
      {friend&&
